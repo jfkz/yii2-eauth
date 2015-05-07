@@ -23,14 +23,17 @@ class VKontakteOAuth2Service extends Service
 {
 
 	const SCOPE_FRIENDS = 'friends';
+        const SCOPE_OFFLINE = 'offline';
+        const SCOPE_GROUPS = 'groups';
 
 	protected $name = 'vkontakte';
 	protected $title = 'VK.com';
 	protected $type = 'OAuth2';
 	protected $jsArguments = array('popup' => array('width' => 585, 'height' => 350));
+        protected $scopeSeparator = ',';
+        protected $scopes = array(self::SCOPE_FRIENDS);
 
-	protected $scopes = array(self::SCOPE_FRIENDS);
-	protected $providerOptions = array(
+        protected $providerOptions = array(
 		'authorize' => 'http://api.vk.com/oauth/authorize',
 		'access_token' => 'https://api.vk.com/oauth/access_token',
 	);
